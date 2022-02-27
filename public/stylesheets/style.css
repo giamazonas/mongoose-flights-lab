@@ -1,8 +1,39 @@
+html {
+  box-sizing: border-box;
+}
+
+*, 
+*::before, 
+*::after { 
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Monaco", "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(189, 247, 247);
+}
+
+#eachFlight {
+  margin: 25px;
+  padding:25px;
+  border-left-style: solid;
+  border-bottom-style: dotted;
+  border-color: black;
+
+}
+
+#form {
+  padding: 25px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
 }
 
 a {
-  color: #00B7FF;
+  color: #236079;
 }
