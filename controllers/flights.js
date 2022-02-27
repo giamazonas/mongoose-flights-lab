@@ -17,16 +17,16 @@ function create(req, res) {
     if (err) return res.redirect('/flights/new')
     res.redirect('/flights')
   })
+}
 
-  function index(req, res) {
-    Flight.find({}, function (error, flights) {
-      res.render("flights/index", {
-        error: error,
-        flights: flights,
-      })
+function index(req, res) {
+  Flight.find({}, function (error, flights) {
+    res.render("flights/index", {
+      error: error,
+      flights: flights,
     })
-  }
-  
+  })
+}
 
 export {
   newFlight as new,

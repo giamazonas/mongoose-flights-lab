@@ -3,10 +3,25 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const flightSchema = new Schema ({
-  airline: String,
-  airport: String,
-  flightNo: Number,
-  departs: Date,
+  airline: {
+    type: String,
+    required: true,
+  },
+  airport: {
+    type: String,
+    required: true,
+  },
+  flightNo: {
+    type: Number,
+
+  },
+  departs: {
+    type: Date,
+    default: function() {
+      return new Date().getFullYear()
+    },
+
+  },
 })
 
 //- AAU, I want to view a list of all flights (index view) that displays each flight’s airline, airport, flight no., and departure date/time.
@@ -14,3 +29,9 @@ const flightSchema = new Schema ({
 //- AAU, I want to be able to access each view via a navigation bar at the top of the page with links to:
      //    - `ALL FLIGHTS`, and
      //  - `ADD FLIGHT`
+
+const Flight = mongoose.model('Flight', flightSchema)
+
+export {
+  Flight
+}
