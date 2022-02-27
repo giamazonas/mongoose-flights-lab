@@ -22,9 +22,13 @@ body {
   margin: 25px;
   padding:25px;
   border-left-style: solid;
-  border-bottom-style: dotted;
-  border-color: black;
+  border-color: rgb(28, 28, 138);
+}
 
+#flightsList {
+  outline-style: double;
+  padding: 25px;
+  /* font: color: rgb(28, 28, 138; */
 }
 
 #form {
