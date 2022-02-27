@@ -11,11 +11,28 @@
   <h1>Enter a New Flight</h1>
   <form action="/flights" method="POST">
     <label>Airline:
-      <input type="text" name="airline"  required>
-      <select name="airport">
-        <option value="DEN" selected></option>
-      </select>
-    </label><br>
+      <input list="airlines" name="airline"  required>
+    </label>
+    <datalist id="airlines">
+      <option value="Air New Zealand">
+      <option value="Air France">
+      <option value="Alaska Air">
+      <option value="American Airlines">
+      <option value="British Airways">
+      <option value="Delta">
+      <option value="Emirates">
+      <option value="Finnair">
+      <option value="Fronteir">
+      <option value="GOL">
+      <option value="KLM">
+      <option value="Spirit">
+      <option value="TACV">
+      <option value="TAM">
+      <option value="TAP">
+      <option value="Turkish Airlines">
+      <option value="Southwest">
+      <option value="Virgin Atlantic">
+    </datalist><br>
     <label>Airport:
       <input list="airports" name="airport">
     </label>
