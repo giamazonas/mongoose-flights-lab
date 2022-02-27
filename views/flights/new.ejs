@@ -11,7 +11,10 @@
   <h1>Enter a New Flight</h1>
   <form action="/flights" method="POST">
     <label>Airline:
-      <input type="text" name="airline" required>
+      <input type="text" name="airline"  required>
+      <select name="airport">
+        <option value="DEN" selected></option>
+      </select>
     </label><br>
     <label>Airport:
       <input type="text" name="airport">
@@ -24,5 +27,9 @@
     </label><br>
     <button type="submit">Add Flight</button>
   </form>
+  <p></p>
+  <a href="/flights/index">All Flights</a>
+  <p></p>
+  <a href="/">Return to Home Page</a> 
 </body>
 </html>
