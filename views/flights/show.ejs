@@ -14,9 +14,15 @@
       <div><%= flight.flightNo %></div>
       <div> Departs </div>
       <div><%= flight.departs %></div>
-      <div><%= flight.tickets %></div>
+      <div><%= flight.seat %></div>
+      <div><%= flight.price %></div>
     </section>
-
+    <div>
+      <%= flight.seat %> 
+      <a href="/flights/<%= flight._id %>/edit">
+        <button>Edit Seat</button>
+      </a>
+    </div>
   </main>
   <p></p>
 

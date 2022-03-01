@@ -11,7 +11,9 @@ import * as flightsCtrl from '../controllers/flights.js'
 router.get('/index', flightsCtrl.index)
 router.get('/new', flightsCtrl.new)
 router.post('/', flightsCtrl.create)
+
 router.get('/:id', flightsCtrl.show)
+router.get('/:id', flightsCtrl.edit)
 
 export {
   router

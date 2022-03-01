@@ -41,9 +41,20 @@ function show(req, res) {
   }) 
 }
 
+function edit(req, res) {
+  Flight.findById(req.params.id, function (err, flight) {
+    res.render("flights/edit", {
+      flight, // same as: movie: movie
+      err,
+      title: "Choose a differet seat.."
+    })
+  })
+}
+
 export {
   newFlight as new,
   create,
   index,
   show,
+  edit,
 }
