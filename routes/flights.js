@@ -13,7 +13,9 @@ router.get('/new', flightsCtrl.new)
 router.post('/', flightsCtrl.create)
 
 router.get('/:id', flightsCtrl.show)
+router.post(':id', flightsCtrl.addSeat)
 router.get('/:id', flightsCtrl.edit)
+router.patch('/:id', flightsCtrl.update)
 
 export {
   router

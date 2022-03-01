@@ -56,13 +56,17 @@
       <label>Date:
         <input type="datetime-local" name="departs" value="" min="" max="" required pattern="\d{4}-\d{2}-\d{2}" >
       </label><br>
+      <!-- <label>Seat Number:
+        <input type="String" name="seat" required match="/[A-F][1-9]\d?/">
+      </label><br> -->
+      <!-- <label>Price:
+        <input type="Number" name="price" min="150" max="999" default="300">
+      </label><br> -->
       <button type="submit">Add Flight</button>
     </form>
     <p></p>
     <p></p>
   </div>
-  <a href="/flights/index">All Flights</a>
-  <p></p>
-  <a href="/">Return to Home Page</a> 
+
 
   <%- include('../partials/footer') %>

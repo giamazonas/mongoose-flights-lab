@@ -26,7 +26,6 @@ const flightSchema = new Schema ({
     default: function() {
       return new Date().getFullYear()
     },
-
   },
   tickets: [ticketSchema],
 })

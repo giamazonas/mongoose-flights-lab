@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="public/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/style.css">
 <%- include('../partials/nav') %>
   
   <main>
@@ -14,18 +14,39 @@
       <div><%= flight.flightNo %></div>
       <div> Departs </div>
       <div><%= flight.departs %></div>
-      <div><%= flight.seat %></div>
-      <div><%= flight.price %></div>
+      <div><%= flight.tickets %>hello</div>
+    
     </section>
-    <div>
-      <%= flight.seat %> 
-      <a href="/flights/<%= flight._id %>/edit">
-        <button>Edit Seat</button>
-      </a>
+    <div id="form">
+      <form action="/flights" method="POST">
+        <label>Choose your seat:
+          <input list="seats" name="seat">
+        </label>
+        <datalist id="seats">
+          <option value="1A">
+          <option value="2A">
+          <option value="3A">
+          <option value="4A">
+          <option value="5A">
+          <option value="1B">
+          <option value="2B">
+          <option value="3B">
+          <option value="4B">
+          <option value="5B">
+          <option value="1C">
+          <option value="2C">
+          <option value="3C">
+          <option value="4C">
+          <option value="5C">
+
+        </datalist>
+        <button type="submit">Add Seat</button>
+      </form>
     </div>
+
   </main>
   <p></p>
 
-  <a href="/">Return to Home Page</a> 
+
 
   <%- include('../partials/footer') %>
