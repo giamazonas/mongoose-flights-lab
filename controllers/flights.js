@@ -7,18 +7,28 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
-  req.body.nowShowing = !!req.body.nowShowing
-  if (req.body.cast) {
-    req.body.cast = req.body.cast.split(', ')
-  }
-  for (let key in req.body) {
-    if(req.body[key] === "") delete req.body[key]
-  }
   const flight = new Flight(req.body)
   flight.save(function(err) {
     if (err) return res.redirect('/flights/new')
     res.redirect('/flights')
   })
+}
+
+function createTicket(req, res){
+  Flight.findById(req.params.id, function(error, flight){
+    flight.tickets.push(req.body)
+    flight.save(function(error){
+      res.redirect('flights')
+    })
+  })
+}
+
+function future() {
+  const now= new Date()
+  // console.log(now)
+  const oneYear = now.getFullYear()+1
+  // console.log(oneYear)
+  now.setFullYear(now);
 }
 
 function addSeat(req, res) {
@@ -80,5 +90,5 @@ export {
   addSeat,
   edit,
   update,
-
+  future,
 }

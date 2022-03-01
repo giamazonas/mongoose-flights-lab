@@ -19,6 +19,8 @@ const flightSchema = new Schema ({
   },
   flightNo: {
     type: Number,
+    min: 10,
+    max: 9999,
 
   },
   departs: {
@@ -29,6 +31,8 @@ const flightSchema = new Schema ({
   },
   tickets: [ticketSchema],
 })
+
+
 
 //- AAU, I want to view a list of all flights (index view) that displays each flight’s airline, airport, flight no., and departure date/time.
 //- AAU, I want to create flights by entering the information on a page (new view) that has a form and submitting it. When I submit the form I should be taken back to all the flights.
