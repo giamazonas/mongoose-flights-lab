@@ -15,9 +15,15 @@ html {
 body {
   padding: 50px;
   font: 14px "Monaco", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.nav-bar {
   background-color: rgb(189, 247, 247);
 }
 
+main {
+  background-color: whitesmoke;
+}
 #eachFlight {
   margin: 25px;
   padding:25px;
