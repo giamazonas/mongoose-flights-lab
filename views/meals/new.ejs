@@ -6,14 +6,9 @@
 	<h1><%= title %></h1>
   <div id="form">
   <form id="add-meal-form" action="/meals" method="POST">
-    <label for="meal-input">Meal Options:</label>
-    <input list="meals" name="meal" required>
-    <datalist id="meals">
-      <option value="Chicken">
-      <option value="Beef">
-      <option value="Fish">
-      <option value="Vegetarian">
-      </datalist><br>
+    <!-- <label for="meal-input">Meal Options:</label> -->
+    <input type="text" name="name">
+    
     <button type="submit">Add Meal Selection</button>
   </form>
   </div>
