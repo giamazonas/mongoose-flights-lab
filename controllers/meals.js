@@ -1,7 +1,7 @@
 import { Meal } from '../models/meal.js'
 
 function newMeal(req, res) {
-  Meal.find({}, function (err, performers){
+  Meal.find({}, function (err, meals){
     res.render('meals/new', {
       title: 'Add Meal',
       meals: meals,
@@ -9,7 +9,15 @@ function newMeal(req, res) {
   })
 }
 
+function create(req, res){
+  Meal.create(req.body, function (error, meal) {
+    res.redirect('/meals/new')
+  })
+}
+
 export {
   newMeal as new,
+  create,
+
 }
 
