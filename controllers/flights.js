@@ -7,6 +7,9 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
+  for(let key in req.body){
+    if (req.body[key] === "") delete req.body[key]
+  }
   const flight = new Flight(req.body)
   flight.save(function(error) {
     console.log(error)
@@ -22,14 +25,6 @@ function createTicket(req, res){
       res.redirect(`/flights/${req.params.id}`)
     })
   })
-}
-
-function future() {
-  const now= new Date()
-  // console.log(now)
-  const oneYear = now.getFullYear()+1
-  // console.log(oneYear)
-  now.setFullYear(now);
 }
 
 function addSeat(req, res) {
@@ -91,6 +86,5 @@ export {
   addSeat,
   edit,
   update,
-  future,
   createTicket,
 }
