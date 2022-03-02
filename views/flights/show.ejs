@@ -6,7 +6,7 @@
     <h1><%= title %></h1>
     <section>
       <div> Airline </div> 
-      <div> <%= flight.airline %>
+      <div> <%= flight.airline %> 
       </div>
       <div>Airport </div>
       <div><%= flight.airport %></div>
@@ -14,36 +14,23 @@
       <div><%= flight.flightNo %></div>
       <div> Departs </div>
       <div><%= flight.departs %></div>
-      <div><%= flight.tickets %>hello</div>
-    
-    </section>
-    <div id="form">
-      <form action="/flights" method="POST">
-        <label>Choose your seat:
-          <input list="seats" name="seat">
-        </label>
-        <datalist id="seats">
-          <option value="1A">
-          <option value="2A">
-          <option value="3A">
-          <option value="4A">
-          <option value="5A">
-          <option value="1B">
-          <option value="2B">
-          <option value="3B">
-          <option value="4B">
-          <option value="5B">
-          <option value="1C">
-          <option value="2C">
-          <option value="3C">
-          <option value="4C">
-          <option value="5C">
 
-        </datalist>
-        <button type="submit">Add Seat</button>
+
+      <form id="add-seat" action="/flights/<%= flight.id %>/tickets" method="POST">
+        <h3>Add a Ticket </h3>
+        <input name="seat" required pattern="[A-F][1-9]\d?" placeholder="A1-F99">
+        <input name="price" type="number" min="0" placeholder="$1-999">
+        <button type="submit">Add Ticket</button>
       </form>
-    </div>
 
+    </section>
+    <section>
+      <% flight.tickets.forEach(ticket => { %>
+        <p> <%= ticket.seat %> </p>
+        <p> $ <%= ticket.price %> </p>
+      <% }) %>
+    </section>
+    
   </main>
   <p></p>
 

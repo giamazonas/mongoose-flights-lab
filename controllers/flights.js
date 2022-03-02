@@ -8,8 +8,9 @@ function newFlight(req, res) {
 
 function create(req, res) {
   const flight = new Flight(req.body)
-  flight.save(function(err) {
-    if (err) return res.redirect('/flights/new')
+  flight.save(function(error) {
+    console.log(error)
+    if (error) return res.redirect('/flights/new')
     res.redirect('/flights')
   })
 }
@@ -18,7 +19,7 @@ function createTicket(req, res){
   Flight.findById(req.params.id, function(error, flight){
     flight.tickets.push(req.body)
     flight.save(function(error){
-      res.redirect('flights')
+      res.redirect(`/flights/${req.params.id}`)
     })
   })
 }
@@ -32,9 +33,9 @@ function future() {
 }
 
 function addSeat(req, res) {
-  Flight.findById(req.params.id, function(err, tickets) {
+  Flight.findById(req.params.id, function(error, tickets) {
     tickets.seat.push(req.body)
-    flight.save(function(err) {
+    flight.save(function(error) {
       res.redirect(`/flights/${flight._id}`)
     })
   })
@@ -51,7 +52,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Flight.findById(req.params.id, function (err, flight) {
+  Flight.findById(req.params.id, function (error, flight) {
     console.log(flight)
     res.render("flights/show", {
       flight: flight,
@@ -63,10 +64,10 @@ function show(req, res) {
 // function addSeat
 
 function edit(req, res) {
-  Flight.findById(req.params.id, function (err, flight) {
+  Flight.findById(req.params.id, function (error, flight) {
     res.render("flights/show", {
-      flight, // same as: movie: movie
-      err,
+      flight, 
+      error,
       title: "Choose a differet seat.."
     })
   })
@@ -77,7 +78,7 @@ function update(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
-  Flight.findByIdAndUpdate(req.params.id, req.body, function(err, flight) {
+  Flight.findByIdAndUpdate(req.params.id, req.body, function(error, flight) {
     res.redirect('/flights/:id')
   })
 }
@@ -91,4 +92,5 @@ export {
   edit,
   update,
   future,
+  createTicket,
 }
