@@ -30,7 +30,28 @@
         <p> $ <%= ticket.price %> </p>
       <% }) %>
     </section>
-    
+    <section>
+      <div>Meal Selection</div>
+      <ul>
+        <% meal.forEach(meal => { %>
+          <li><%= meal.name %></li>
+        <% }) %>
+      </ul>
+    </section>
+    <form id="add-meal" action="/flights/<%= flight._id %>/meals" method="POST">
+      <select name="mealId">
+        <% meal.forEach(meal => { %>
+          <option value="<%= meal._id %>"></option>
+        <% }) %>
+      </select>
+      <button type="submit">Add Meal Selection</button>
+    </form>
+
+</div>
+
+
+
+
   </main>
   <p></p>
 

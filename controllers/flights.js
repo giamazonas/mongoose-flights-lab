@@ -1,4 +1,8 @@
+// import { escapeRegExpChars } from 'ejs/lib/utils'
+import methodOverride from 'method-override'
 import { Flight } from '../models/flight.js'
+import { Meal } from '../models/meal.js'
+
 
 function newFlight(req, res) {
   res.render('flights/new', {
@@ -47,16 +51,14 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Flight.findById(req.params.id, function (error, flight) {
-    console.log(flight)
-    res.render("flights/show", {
-      flight: flight,
-      title: 'Flight Details',
-    }) 
-  }) 
+  Flight.findById(req.params.id)
+    .populate('meal')
+    .exec(function(error, flight) {
+      Meal.find({_id: {$nin:flight.meal}},function(error, meal) {
+        res.render('flights/show', { title: 'Meal Selection', meal, flight })
+      })
+    })
 }
-
-// function addSeat
 
 function edit(req, res) {
   Flight.findById(req.params.id, function (error, flight) {
@@ -78,6 +80,15 @@ function update(req, res) {
   })
 }
 
+function addMeal(req, res) {
+  Meal.findById(req.params.id, function(error, flight) {
+    flight.meal.push(req.body.mealId)
+    flight.save(function(error) {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
+
 export {
   newFlight as new,
   create,
@@ -87,4 +98,6 @@ export {
   edit,
   update,
   createTicket,
+  addMeal,
+  
 }
