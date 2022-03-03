@@ -7,7 +7,6 @@ const ticketSchema = new Schema({
   price: {type: Number, min: 150, max: 999}
 })
 
-
 const flightSchema = new Schema ({
   airline: {
     type: String,
@@ -21,7 +20,6 @@ const flightSchema = new Schema ({
     type: Number,
     min: 10,
     max: 9999,
-
   },
   departs: {
     type: Date,
@@ -33,8 +31,6 @@ const flightSchema = new Schema ({
   meal: [{type: Schema.Types.ObjectId, ref: 'Meal',
   }],
 })
-
-
 
 const Flight = mongoose.model('Flight', flightSchema)
 

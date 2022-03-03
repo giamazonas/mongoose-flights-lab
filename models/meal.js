@@ -7,9 +7,7 @@ const mealSchema = new Schema({
   
 })
 
-
 const Meal = mongoose.model('Meal', mealSchema)
-// 'meals/new'
 
 export {
   Meal
