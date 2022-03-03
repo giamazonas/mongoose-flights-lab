@@ -30,9 +30,25 @@ body {
   border-radius: 5px;
 }
 
-.home-page {
-  
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
+
+/* @media (max-width: 768px) {
+  .float-right-sm {
+    float: right;
+  }
+}
+
+@media (min-width: 769px) {
+  .float-right-lg {
+    float: right;
+  }
+} */
 
 main {
   margin: 10px;
@@ -94,5 +110,12 @@ a {
   margin-bottom: 0;
   border-color: solid #236079;
   border-radius: 5px;
+}
 
+#add-seat {
+  background-color: white;
+  border:0.1em solid rgb(3, 110, 110);
+  color:rgb(3, 110, 110);
+  padding: 10px;
+  border-radius: 5px;
 }

@@ -5,19 +5,25 @@
   <main>
     <h1><%= title %></h1>
     <section>
-      <div> Airline </div> 
+      <br>
+      <div> <h3> Airline </h3></div> 
       <div> <%= flight.airline %> 
       </div>
-      <div>Airport </div>
+      <br>
+      <div><h3>Airport</h3> </div>
       <div><%= flight.airport %></div>
-      <div> Flight Number </div>
+      <br>
+      <div><h3> Flight Number</h3> </div>
       <div><%= flight.flightNo %></div>
-      <div> Departs </div>
+      <br>
+      <div><h3>Departs </h3></div>
       <div><%= flight.departs %></div>
+      <br>
       <form class="form" id="add-seat" action="/flights/<%= flight.id %>/tickets" method="POST">
         <h3>Add a Ticket </h3>
         <input name="seat" required pattern="[A-F][1-9]\d?" placeholder="A1-F99">
         <input name="price" type="number" min="0" placeholder="$1-999">
+        <br><br>
         <button type="submit" class="submitBtn">Add Ticket</button>
       </form>
     </section>
@@ -28,7 +34,7 @@
       <% }) %>
     </section>
     <section>
-      <div>Meal Selection</div>
+      <div><h3>Meal Selection</h3></div>
       <ul>
         <% flight.meal.forEach(meal => { %>
           <li><%= meal.name %></li>
@@ -36,12 +42,12 @@
       </ul>
     </section>
     <form class="form" id="add-meal" action="/flights/<%= flight._id %>/meals" method="POST">
-      <select name="mealId">
+      <select id="form" name="mealId">
         <% meal.forEach(meal => { %>
           <option value="<%= meal._id %>"><%= meal.name %></option>
         <% }) %>
       </select>
-      <button type="submit" class="submitBtn" >Add Meal Selection</button>
+      <button type="submit" class="submitBtn" >Add Your Choice</button>
     </form>
   </main>
   <p></p>
